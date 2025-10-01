@@ -19,6 +19,7 @@ import {
   Wrench,
 } from "lucide-react"
 import { ArrowUp } from "lucide-react"
+import satyam from "../assets/satyam.jpeg"
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("home")
@@ -166,9 +167,13 @@ export default function Portfolio() {
         <div className="container">
           <div className="row align-items-center min-vh-100 hero-content">
             <div className="col-lg-8 mx-auto text-center">
-              <div className="hero-avatar ">
-                <div className="avatar-circle">
-                  <span className="display-1 fw-bold">SK</span>
+               <div className="hero-avatar">
+                <div className="avatar-circle overflow-hidden">
+                  <img
+                    src={satyam}
+                    alt="Profile photo"
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  />
                 </div>
               </div>
               <h1 className="display-3 fw-bold ">Satyam Khule</h1>
