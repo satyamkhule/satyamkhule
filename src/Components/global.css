@@ -1,7 +1,8 @@
-Custom CSS for Portfolio
-/* @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"); */
-
-* {
+Custom
+  CSS
+  for
+  Portfolio /* @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"); */
+  * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,6 +17,8 @@ body {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden; /* prevent horizontal overflow on mobile and ensure long links wrap */
+  width: 100%;
 }
 
 /* Navigation */
@@ -38,6 +41,57 @@ html {
 
 .nav-link:hover {
   color: #fff !important;
+}
+
+/* Custom Hamburger Button and Mobile Collapse Behavior */
+.custom-hamburger {
+  border: none;
+  background: transparent;
+  padding: 8px;
+  margin-left: auto;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-hamburger:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.4);
+  outline-offset: 2px;
+}
+
+.hamburger-line {
+  width: 24px;
+  height: 2px;
+  background: #ffffff;
+  display: block;
+  margin: 2px 0;
+  transition: transform 0.2s ease, opacity 0.2s ease, width 0.2s ease;
+}
+
+.custom-hamburger.active .hamburger-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.custom-hamburger.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.custom-hamburger.active .hamburger-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Ensure collapsed nav hides on mobile and shows when .show is present (Bootstrap uses these) */
+@media (max-width: 991.98px) {
+  .navbar .navbar-collapse {
+    width: 100%;
+    padding: 12px 0;
+    background: rgba(0, 0, 0, 0.9);
+  }
+  .navbar .navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+    text-align: left;
+  }
 }
 
 /* Hero Section */
@@ -63,9 +117,9 @@ html {
   z-index: 2;
 }
 
-.hero-avatar {
+/* .hero-avatar {
   margin-bottom: 2rem;
-}
+} */
 
 .avatar-circle {
   width: 150px;
@@ -105,6 +159,7 @@ html {
   border: none;
   border-radius: 15px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.6s ease-out;
 }
 
 .card:hover {
@@ -135,10 +190,8 @@ html {
 .contact-item a {
   text-decoration: none;
   transition: color 0.3s ease;
-}
-
-.contact-item a:hover {
-  color: #007bff !important;
+  word-break: break-word; /* prevent horizontal overflow on mobile and ensure long links wrap */
+  overflow-wrap: anywhere;
 }
 
 /* Icon styles */
@@ -163,6 +216,9 @@ html {
   height: 48px;
   margin-bottom: 1rem;
 }
+
+
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -198,10 +254,6 @@ html {
   }
 }
 
-.card {
-  animation: fadeInUp 0.6s ease-out;
-}
-
 /* Section Spacing */
 section {
   padding: 80px 0;
@@ -232,4 +284,36 @@ section {
   background-color: #f8f9fa !important;
   background-image: radial-gradient(circle at 1px 1px, rgba(102, 126, 234, 0.1) 1px, transparent 0);
   background-size: 20px 20px;
+}
+
+/* Images and SVGs */
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.scroll-to-top-btn:hover {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform: scale(1.1);
 }
